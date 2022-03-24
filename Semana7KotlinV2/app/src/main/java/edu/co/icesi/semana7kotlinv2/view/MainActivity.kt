@@ -1,6 +1,6 @@
 package edu.co.icesi.semana7kotlinv2.view
 
-import android.content.res.Configuration
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
@@ -56,10 +56,25 @@ class MainActivity : AppCompatActivity() {
         //Serialización
         val json = Gson().toJson(request)
         Log.e(">>>",json)
-        
-        //Deserialización
-        val objdeserie = Gson().fromJson(json, Request::class.java)
-        Log.e(">>>",objdeserie.url)
-        Log.e(">>>",objdeserie.responde)
+
+        //Shared preferences
+        val sharedPref = getPreferences(Context.MODE_PRIVATE)
+        sharedPref.edit()
+            .putString("currentState", json)
+            .apply()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        val sharedPref = getPreferences(Context.MODE_PRIVATE)
+        val json = sharedPref.getString("currentState","NO_DATA")
+
+        if(json != "NO_DATA"){
+            //Deserialización
+            val currentState = Gson().fromJson(json, Request::class.java)
+            binding.siteET.setText(currentState.url)
+            binding.outputTV.text = currentState.response
+        }
     }
 }
