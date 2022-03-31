@@ -1,5 +1,6 @@
 package edu.co.icesi.semana2akotlinv2
 
+import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
@@ -32,6 +33,8 @@ class ProfileActivity : AppCompatActivity() {
             finish()
         }
         */
+
+        requestPermissions(arrayOf(Manifest.permission.CALL_PHONE),1)
 
         callBtn.setOnClickListener {
             //LLamado al sistema operativo
