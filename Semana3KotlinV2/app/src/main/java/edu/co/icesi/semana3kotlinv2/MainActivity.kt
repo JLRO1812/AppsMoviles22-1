@@ -1,5 +1,6 @@
 package edu.co.icesi.semana3kotlinv2
 
+import android.Manifest
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,9 +13,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var adapter: ContactsAdapter
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        requestPermissions(arrayOf(Manifest.permission.CALL_PHONE),1)
 
         layoutManager = LinearLayoutManager(this)
 
