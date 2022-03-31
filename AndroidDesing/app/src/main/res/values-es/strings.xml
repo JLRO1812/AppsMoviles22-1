@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">DiseñoAndroid</string>
+
+    <string name="main_title">Mi super juego</string>
+    <string name="main_button_play">Jugar</string>
+    <string name="main_button_records">Mejores partidas</string>
+    <string name="main_button_instruccions">Instrucciones</string>
+    <string name="created_by">Creado por la Universidad Icesi</string>
+</resources>

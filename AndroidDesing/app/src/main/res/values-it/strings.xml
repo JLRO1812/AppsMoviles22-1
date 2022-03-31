@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Dising Android</string>
+
+    <string name="main_title">Il mio super gioco</string>
+    <string name="main_button_play">Giocare</string>
+    <string name="main_button_records">Records</string>
+    <string name="main_button_instruccions">Istruzioni</string>
+    <string name="created_by">Creato by da Universidad Icesi</string>
+</resources>
