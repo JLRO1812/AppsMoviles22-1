@@ -11,10 +11,11 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
 import androidx.core.content.FileProvider
+import com.bumptech.glide.Glide
 import edu.co.icesi.semana8kotlin.databinding.ActivityHomeBinding
 import java.io.File
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() , WebImageFragment.OnURLListener {
 
     private lateinit var binding: ActivityHomeBinding
     private var file:File? = null
@@ -46,6 +47,11 @@ class HomeActivity : AppCompatActivity() {
             intent.type = "image/*"
             galleryLauncher.launch(intent)
         }
+        binding.webBtn.setOnClickListener{
+            val dialog = WebImageFragment()
+            dialog.listener = this
+            dialog.show(supportFragmentManager, "webDialog")
+        }
     }
 
     fun onCameraResult(result: ActivityResult){
@@ -69,5 +75,10 @@ class HomeActivity : AppCompatActivity() {
                 binding.image.setImageURI(uriImage)
             }
         }
+    }
+
+    override fun onURL(url: String) {
+        Log.e(">>>",url)
+        Glide.with(this).load(url).centerCrop().into(binding.image)
     }
 }
