@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
 import androidx.core.content.FileProvider
@@ -47,9 +48,10 @@ class HomeActivity : AppCompatActivity() {
         */
         if(result.resultCode == RESULT_OK){
             val bitmap = BitmapFactory.decodeFile(file?.path)
-            binding.image.setImageBitmap(bitmap)
+            val thumbnail = Bitmap.createScaledBitmap(bitmap,bitmap.width/4,bitmap.height/4,true)
+            binding.image.setImageBitmap(thumbnail)
         }else if(result.resultCode == RESULT_CANCELED){
-
+            Toast.makeText(this,"No tomó foto", Toast.LENGTH_SHORT).show()
         }
     }
 }
