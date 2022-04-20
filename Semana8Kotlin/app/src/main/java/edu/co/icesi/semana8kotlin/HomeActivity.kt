@@ -26,7 +26,9 @@ class HomeActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val launcher = registerForActivityResult(StartActivityForResult(), ::onResult)
+        val cameraLauncher = registerForActivityResult(StartActivityForResult(), ::onCameraResult)
+        val galleryLauncher = registerForActivityResult(StartActivityForResult(), ::onGalleryResult)
+
 
 
         binding.cameraBtn.setOnClickListener {
@@ -37,11 +39,16 @@ class HomeActivity : AppCompatActivity() {
 
             Log.e(">>>",file?.path.toString())
 
-            launcher.launch(intent)
+            cameraLauncher.launch(intent)
+        }
+        binding.galleryBtn.setOnClickListener {
+            val intent = Intent(Intent.ACTION_GET_CONTENT)
+            intent.type = "image/*"
+            galleryLauncher.launch(intent)
         }
     }
 
-    fun onResult(result: ActivityResult){
+    fun onCameraResult(result: ActivityResult){
         /*Thumbnail
         val bitmap = result.data?.extras?.get("data") as Bitmap
         binding.image.setImageBitmap(bitmap)
@@ -52,6 +59,15 @@ class HomeActivity : AppCompatActivity() {
             binding.image.setImageBitmap(thumbnail)
         }else if(result.resultCode == RESULT_CANCELED){
             Toast.makeText(this,"No tomó foto", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    fun onGalleryResult(result: ActivityResult){
+        if(result.resultCode == RESULT_OK){
+            val uriImage = result.data?.data
+            uriImage?.let {
+                binding.image.setImageURI(uriImage)
+            }
         }
     }
 }

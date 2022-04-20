@@ -15,7 +15,8 @@ class MainActivity : AppCompatActivity() {
 
         requestPermissions(arrayOf(
             Manifest.permission.CALL_PHONE,
-            Manifest.permission.CAMERA
+            Manifest.permission.CAMERA,
+            Manifest.permission.READ_EXTERNAL_STORAGE
         ),1)
     }
 
