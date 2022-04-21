@@ -6,4 +6,8 @@ data class User (
     var id:String = "",
     var username:String = "",
     var pass:String = ""
-    ): Serializable
+    ): Serializable{
+    override fun toString(): String {
+        return username
+    }
+    }
