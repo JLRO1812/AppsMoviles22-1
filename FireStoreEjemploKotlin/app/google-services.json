@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "396232586306",
+    "project_id": "fir-androidicesi-4bba2",
+    "storage_bucket": "fir-androidicesi-4bba2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:396232586306:android:62b7dfd9d628e0995da9db",
+        "android_client_info": {
+          "package_name": "edu.co.icesi.firestoreejemplokotlin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "396232586306-4pqjc9oq6hgkgic3vvf1pa0jg5p5ppfl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjJiEG5K7fqsFkCE6nxGpfs67c7AiHdLQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "396232586306-4pqjc9oq6hgkgic3vvf1pa0jg5p5ppfl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

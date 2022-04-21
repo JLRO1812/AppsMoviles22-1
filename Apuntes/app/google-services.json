@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "591126970342",
+    "project_id": "beta-55c5c",
+    "storage_bucket": "beta-55c5c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:591126970342:android:3f32546256797b9da1a027",
+        "android_client_info": {
+          "package_name": "edu.co.icesi.apuntes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "591126970342-qldc8039k3d92eikm5tu187h1ifj1u67.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrM0r77-A0y0cug9velK3SoBPaB8Aa4Ec"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "591126970342-qldc8039k3d92eikm5tu187h1ifj1u67.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
