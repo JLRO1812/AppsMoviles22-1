@@ -36,6 +36,24 @@ class ChatActivity : AppCompatActivity() {
                         break
                     }
             }
+                //Podemos leer los mensajes entre ambos usuarios
+                getMessages()
+        }
+
+        binding.sendBtn.setOnClickListener {
+            val message = Message(UUID.randomUUID().toString(), binding.messageET.text.toString(), user.id, Date().time)
+            Firebase.firestore.collection("chats").document(chat.id).collection("messages").document(message.id).set(message)
+        }
+    }
+
+    private fun getMessages() {
+        Firebase.firestore.collection("chats").document(chat.id).collection("messages").addSnapshotListener{ value, error ->
+
+            binding.messagesTV.setText("")
+            for(document in value!!.documents){
+                val message = document.toObject(Message::class.java)
+                binding.messagesTV.append(message?.message + "\n\n")
+            }
         }
     }
 
